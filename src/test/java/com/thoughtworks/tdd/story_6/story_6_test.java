@@ -197,7 +197,34 @@ public class story_6_test {
         //then
         Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
     }
+    @Test
+    public void Manager__park_a_car_into_the_parkingLot() {
+        //given
+        Car car = new Car("888");
 
+        ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
+        Manager manager=new Manager(parkingLot);
+
+        //when
+        String returnInfo=manager.park(car);
+        //then
+        Assertions.assertEquals("Park success.", returnInfo);
+    }
+    @Test
+    public void Manager_fetch_a_car_from_his_parkingLot() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
+        Manager manager=new Manager(parkingLot);
+        Car car=new Car("888");
+        manager.park(car);//先存入该车
+
+        Ticket ticket=new Ticket("888",parkingLot);
+
+        //when
+        String returnInfo=manager.fetchCar(ticket);
+        //then
+        Assertions.assertEquals("Return your car.", returnInfo);
+    }
 
 
 }

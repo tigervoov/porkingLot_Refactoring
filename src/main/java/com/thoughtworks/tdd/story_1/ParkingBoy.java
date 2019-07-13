@@ -9,12 +9,16 @@ public class ParkingBoy {
         if(car==null){
             throw new RuntimeException("Error:car is null");
         }else {
-            Ticket ticket=parkingLot.addTheCarToPakingLot(car.getCarNum());
-            if(ticket!=null){
-                return ticket;
-            }
-            else {
+            if(parkingLot.getCapacity()==0){
                 return null;
+            }else {
+                Ticket ticket=parkingLot.addTheCarToPakingLot(car.getCarNum());
+                if(ticket!=null){
+                    return ticket;
+                }
+                else {
+                    return null;
+                }
             }
         }
     }

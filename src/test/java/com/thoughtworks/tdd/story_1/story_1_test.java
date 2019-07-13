@@ -1,3 +1,4 @@
+//60min/
 package com.thoughtworks.tdd.story_1;
 
 import org.junit.jupiter.api.Assertions;
@@ -74,6 +75,18 @@ public class story_1_test {
         Car fetchCar =parkingBoy.fetchCar(parkingLot,ticket);
         //then
         Assertions.assertNull(fetchCar);
+    }
+    @Test
+    public void should_park_failed_when_parking_lot_is_no_position() {
+        //given
+        Car car=new Car("888");
+        ParkingBoy parkingBoy=new ParkingBoy();
+        ParkingLot parkingLot=new ParkingLot(new ArrayList<>());
+        parkingLot.setCapacity(0);
+        //when
+        Ticket ticket =parkingBoy.park(parkingLot,car);
+        //then
+        Assertions.assertNull(ticket);
     }
 
 }

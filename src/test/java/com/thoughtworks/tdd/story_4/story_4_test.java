@@ -108,6 +108,27 @@ public class story_4_test {
         //then
         Assertions.assertEquals("Park success.", returnInfo);
     }
+    @Test
+    public void parkingBoy_should_park_a_car_into_the_max_capacity_parkingLot() {
+        //given
+        Car car = new Car("888");
+
+        List<ParkingLot> parkingLotList = new ArrayList<>();//初始停车场列表
+
+        ParkingLot firstParkingLot = new ParkingLot(new ArrayList<>());
+        firstParkingLot.setCapacity(1);//设置第一个停车场容量只有1
+
+        ParkingLot secondParkingLot = new ParkingLot(new ArrayList<>());//初始的停车场容量为10
+        parkingLotList.add(firstParkingLot);
+        parkingLotList.add(secondParkingLot);
+
+        ParkingBoy parkingBoy = new ParkingBoy();
+        //when
+        String returnInfo = parkingBoy.park(parkingLotList, car);
+
+        //then
+        Assertions.assertEquals("Park success.", returnInfo);
+    }
 
 
 }

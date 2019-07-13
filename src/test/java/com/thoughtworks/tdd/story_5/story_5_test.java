@@ -110,7 +110,7 @@ public class story_5_test {
         Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
     }
     @Test
-    public void SmartParkingBoy_should_park_a_car_into_the_max_capacity_parkingLot() {
+    public void SmartParkingBoy_should_park_a_car_into_the_larger_Rate_ParkingLot() {
         //given
         Car car = new Car("888");
 

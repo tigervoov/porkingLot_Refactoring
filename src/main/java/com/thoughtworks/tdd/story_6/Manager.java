@@ -64,7 +64,7 @@ public class Manager {
     //管理停车男孩
     public void addABoyToParkingLot(Boy boy) {
         if(boy!=null){
-            manageBoyList.add(boy);
+            this.manageBoyList.add(boy);
             boy.getBelongToParkingLotList().add(this.manageParkingLot);
         }
 

@@ -130,7 +130,7 @@ public class story_6_test {
         Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
     }
     @Test
-    public void Manager_should_order_a_ParkingBoy_to_park_a_car_into_the_max_capacity_parkingLot() {
+    public void Manager_add_a_ParkingBoy_and_order_him_to_park_a_car_into_the_parkingLot() {
         //given
         Car car = new Car("888");
 
@@ -142,6 +142,32 @@ public class story_6_test {
         String returnInfo=manager.orderBoyToParkACar(parkingBoy,car);
         //then
         Assertions.assertEquals("Park success in 1 parkingLot.", returnInfo);
+    }
+    @Test
+    public void Manager_add_a_SmartParkingBoy_and_order_him_to_park_a_car_into_the_max_capacity_parkingLot() {
+        //given
+        Car car = new Car("888");
+
+        SmartParkingBoy smartParkingBoy =new SmartParkingBoy("小朱");
+
+        //初始化停车场表
+        List<ParkingLot> parkingLotList = new ArrayList<>();//初始停车场列表
+        ParkingLot firstParkingLot = new ParkingLot(new ArrayList<>(),10,1);
+        firstParkingLot.setEmptyCapacity(0);
+        ParkingLot secondParkingLot = new ParkingLot(new ArrayList<>(),10,2);
+        parkingLotList.add(firstParkingLot);
+        parkingLotList.add(secondParkingLot);
+
+        //假设smartParkingBoy同时服务两个停车场。
+        Manager manager1=new Manager(firstParkingLot);
+        manager1.addABoyToParkingLot(smartParkingBoy);
+
+        Manager manager2=new Manager(secondParkingLot);
+        manager2.addABoyToParkingLot(smartParkingBoy);
+        //when
+        String returnInfo=manager1.orderBoyToParkACar(smartParkingBoy,car);
+        //then
+        Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
     }
 
 

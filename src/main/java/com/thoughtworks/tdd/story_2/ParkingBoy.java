@@ -7,21 +7,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ParkingBoy {
-    public Ticket park(ParkingLot parkingLot,Car car){
-        if(car==null){
-            throw new RuntimeException("Error:car is null");
-        }else {
-            if(parkingLot.getCapacity()==0 || car.getPark()==true){
-                return null;
-            }else {
+    public String park(ParkingLot parkingLot,Car car) {
+        if (car == null) {
+            return "No car to park";
+        } else {
+            if (parkingLot.getCapacity() == 0) {
+                return "Not enough position.";
+            }
+            if (car.getPark() == true) {
+                return "The car is parked.";
+            } else {
                 car.setPark(true);
-                Ticket ticket=parkingLot.addTheCarToPakingLot(car.getCarNum());
-                if(ticket!=null){
-                    return ticket;
+                Ticket ticket = parkingLot.addTheCarToPakingLot(car.getCarNum());
+                if (ticket != null) {
+                    return "Park success.";
+                }else {
+                    return "Park failed.";
                 }
-                else {
-                    return null;
-                }
+
             }
         }
     }

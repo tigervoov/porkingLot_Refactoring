@@ -88,5 +88,18 @@ public class story_1_test {
         //then
         Assertions.assertNull(ticket);
     }
+    @Test
+    public void should_park_failed_when_car_is_parked() {
+        //given
+        Car car=new Car("888");
+        car.setPark(true);
+        ParkingBoy parkingBoy=new ParkingBoy();
+        ParkingLot parkingLot=new ParkingLot(new ArrayList<>());
+
+        //when
+        Ticket ticket =parkingBoy.park(parkingLot,car);
+        //then
+        Assertions.assertNull(ticket);
+    }
 
 }

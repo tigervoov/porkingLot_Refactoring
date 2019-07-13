@@ -9,9 +9,10 @@ public class ParkingBoy {
         if(car==null){
             throw new RuntimeException("Error:car is null");
         }else {
-            if(parkingLot.getCapacity()==0){
+            if(parkingLot.getCapacity()==0 || car.getPark()==true){
                 return null;
             }else {
+                car.setPark(true);
                 Ticket ticket=parkingLot.addTheCarToPakingLot(car.getCarNum());
                 if(ticket!=null){
                     return ticket;

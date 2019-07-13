@@ -34,7 +34,7 @@ public class SuperSmartParkingBoy {
         } if(car.getPark() == true){
             return "The car is parked.";
         }else{
-            ParkingLot largerAvailableRateParkingLot = getLargerAvailableRatePakingLot(parkingLotList);
+            ParkingLot largerAvailableRateParkingLot = getLargerAvailableRateParkingLot(parkingLotList);
 
             if (largerAvailableRateParkingLot == null) {
                 return "Not enough position.";
@@ -43,7 +43,7 @@ public class SuperSmartParkingBoy {
                 car.setPark(true);
                 Ticket ticket = largerAvailableRateParkingLot.addTheCarToParkingLot(car.getCarNum());
                 if (ticket != null) {
-                    return "Park success.";
+                    return String.format("Park success in %d parkingLot.",ticket.getParkingLotNumber());
                 } else {
                     return "Park failed.";
                 }
@@ -84,7 +84,7 @@ public class SuperSmartParkingBoy {
         }
     }
 
-    public ParkingLot getLargerAvailableRatePakingLot(List<ParkingLot> parkingLotList) {
+    public ParkingLot getLargerAvailableRateParkingLot(List<ParkingLot> parkingLotList) {
         List<ParkingLot> usefulParkingLotList = parkingLotList.stream()
                 .filter(parkingLot -> parkingLot.getCapacity() != 0).collect(Collectors.toList());
         if (usefulParkingLotList.size() != 0) {

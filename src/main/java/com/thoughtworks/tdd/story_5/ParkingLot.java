@@ -22,6 +22,7 @@ public class ParkingLot {
     public void setCarNumList(List<String> carNumList) {
         this.carNumList = carNumList;
     }
+
     public Ticket addTheCarToParkingLot(String carNum){
         if(emptyCapacity!=0){
             carNumList.add(carNum);

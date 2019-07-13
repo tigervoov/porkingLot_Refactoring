@@ -84,7 +84,7 @@ public class story_5_test {
         //when
         String returnInfo = superSmartParkingBoy.superSmartPark(parkingLotList, car);
         //then
-        Assertions.assertEquals("Park success.", returnInfo);
+        Assertions.assertEquals("Park success in 1 parkingLot.", returnInfo);
 
     }
 
@@ -95,7 +95,8 @@ public class story_5_test {
 
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始停车场列表
 
-        ParkingLot firstParkingLot = new ParkingLot(new ArrayList<>(),0,1);
+        ParkingLot firstParkingLot = new ParkingLot(new ArrayList<>(),10,1);
+        firstParkingLot.setEmptyCapacity(0);
 
         ParkingLot secondParkingLot = new ParkingLot(new ArrayList<>(),10,2);
         parkingLotList.add(firstParkingLot);
@@ -106,7 +107,7 @@ public class story_5_test {
         String returnInfo = superSmartParkingBoy.superSmartPark(parkingLotList, car);
 
         //then
-        Assertions.assertEquals("Park success.", returnInfo);
+        Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
     }
     @Test
     public void SmartParkingBoy_should_park_a_car_into_the_max_capacity_parkingLot() {
@@ -116,8 +117,10 @@ public class story_5_test {
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始停车场列表
 
         ParkingLot firstParkingLot = new ParkingLot(new ArrayList<>(),10,1);
+        firstParkingLot.setEmptyCapacity(5);//设置第一个停车场空位置只有5个
 
-        ParkingLot secondParkingLot = new ParkingLot(new ArrayList<>(),10,2);//初始的停车场容量为10
+        ParkingLot secondParkingLot = new ParkingLot(new ArrayList<>(),12,2);//初始的停车场容量为10
+        secondParkingLot.setEmptyCapacity(7);//设置第一个停车场空位置只有7个
         parkingLotList.add(firstParkingLot);
         parkingLotList.add(secondParkingLot);
 
@@ -126,7 +129,7 @@ public class story_5_test {
         String returnInfo = superSmartParkingBoy.superSmartPark(parkingLotList, car);
 
         //then
-        Assertions.assertEquals("Park success.", returnInfo);
+        Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
     }
 
 

@@ -150,7 +150,7 @@ public class story_6_test {
 
         SmartParkingBoy smartParkingBoy =new SmartParkingBoy("小朱");
 
-        //初始化停车场表
+
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始停车场列表
         ParkingLot firstParkingLot = new ParkingLot(new ArrayList<>(),10,1);
         firstParkingLot.setEmptyCapacity(0);
@@ -166,6 +166,34 @@ public class story_6_test {
         manager2.addABoyToParkingLot(smartParkingBoy);
         //when
         String returnInfo=manager1.orderBoyToParkACar(smartParkingBoy,car);
+        //then
+        Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
+    }
+    @Test
+    public void Manager_add_a_superSmartParkingBoy_and_order_him_to_park_a_car_into_the_larger_Rate_ParkingLot() {
+        //given
+        Car car = new Car("888");
+
+        SuperSmartParkingBoy superSmartParkingBoy =new SuperSmartParkingBoy("小朱");
+
+        //初始化停车场表
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        ParkingLot firstParkingLot = new ParkingLot(new ArrayList<>(),10,1);
+        firstParkingLot.setEmptyCapacity(5);//设置第一个停车场空位置只有5个
+
+        ParkingLot secondParkingLot = new ParkingLot(new ArrayList<>(),12,2);//初始的停车场容量为10
+        secondParkingLot.setEmptyCapacity(7);//设置第一个停车场空位置只有7个
+        parkingLotList.add(firstParkingLot);
+        parkingLotList.add(secondParkingLot);
+
+        //假设superSmartParkingBoy同时服务两个停车场。
+        Manager manager1=new Manager(firstParkingLot);
+        manager1.addABoyToParkingLot(superSmartParkingBoy);
+
+        Manager manager2=new Manager(secondParkingLot);
+        manager2.addABoyToParkingLot(superSmartParkingBoy);
+        //when
+        String returnInfo=manager1.orderBoyToParkACar(superSmartParkingBoy,car);
         //then
         Assertions.assertEquals("Park success in 2 parkingLot.", returnInfo);
     }

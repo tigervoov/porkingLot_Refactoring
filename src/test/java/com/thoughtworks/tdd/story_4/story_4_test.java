@@ -13,7 +13,7 @@ public class story_4_test {
     public void should_get_a_error_message_when_give_wrong_ticket_to_parkingBoy() {
         //given
         Ticket ticket = new Ticket("888");
-        ParkingBoy parkingBoy = new ParkingBoy();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy();
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>());
         //when
         String returnInfo = parkingBoy.fetchCar(parkingLot, ticket);
@@ -27,7 +27,7 @@ public class story_4_test {
     public void should_get_a_error_message_when_give_null_ticket_to_parkingBoy() {
         //given
         Ticket ticket = null;
-        ParkingBoy parkingBoy = new ParkingBoy();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy();
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>());
         //when
         String returnInfo = parkingBoy.fetchCar(parkingLot, ticket);
@@ -41,7 +41,7 @@ public class story_4_test {
     public void should_get_a_success_message_when_give_right_ticket_to_parkingBoy() {
         //given
         Ticket ticket = new Ticket("888");
-        ParkingBoy parkingBoy = new ParkingBoy();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy();
         List<String> carNumList = new ArrayList<>();
         carNumList.add("888");//向停车场添加这辆车
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>());
@@ -58,7 +58,7 @@ public class story_4_test {
     public void should_get_a_error_message_when_parkingBoy_park_a_car_into_a_no_position_parkingLot() {
         //given
         Car car = new Car("888");
-        ParkingBoy parkingBoy = new ParkingBoy();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy();
 
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始化停车场列表
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>());
@@ -75,7 +75,7 @@ public class story_4_test {
     public void should_get_a_success_message_when_parkingBoy_park_a_car_into_a_have_position_parkingLot() {
         //given
         Car car = new Car("888");
-        ParkingBoy parkingBoy = new ParkingBoy();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy();
 
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始化停车场列表
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>());
@@ -101,7 +101,7 @@ public class story_4_test {
         parkingLotList.add(firstParkingLot);
         parkingLotList.add(secondParkingLot);
 
-        ParkingBoy parkingBoy = new ParkingBoy();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy();
         //when
         String returnInfo = parkingBoy.park(parkingLotList, car);
 
@@ -122,7 +122,7 @@ public class story_4_test {
         parkingLotList.add(firstParkingLot);
         parkingLotList.add(secondParkingLot);
 
-        ParkingBoy parkingBoy = new ParkingBoy();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy();
         //when
         String returnInfo = parkingBoy.park(parkingLotList, car);
 

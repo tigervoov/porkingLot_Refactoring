@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ParkingBoy {
+public class SmartParkingBoy {
     public String park(List<ParkingLot> parkingLotList, Car car) {
         if (car == null) {
             return "No car to park";

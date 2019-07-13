@@ -19,4 +19,15 @@ public class Ac1_test_cases  {
         //then
         Assertions.assertNotNull(ticket);
     }
+    @Test
+    public void should_get_a_car_when_give_a_ticket() {
+        //given
+        Ticket ticket = new Ticket();
+        ParkingBoy parkingBoy=new ParkingBoy();
+        //when
+        Car car = parkingBoy.fetchCar(ticket);
+
+        //then
+        Assertions.assertNotNull(car);
+    }
 }

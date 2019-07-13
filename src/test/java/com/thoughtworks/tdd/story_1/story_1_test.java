@@ -1,4 +1,4 @@
-//60min/
+//60min/120min
 package com.thoughtworks.tdd.story_1;
 
 import org.junit.jupiter.api.Assertions;

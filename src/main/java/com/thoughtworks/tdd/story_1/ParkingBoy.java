@@ -19,11 +19,15 @@ public class ParkingBoy {
         }
     }
     public Car fetchCar(ParkingLot parkingLot,Ticket ticket){
-        String carNum=ticket.getTicketNum();
-        List<String> carNumList=parkingLot.getCarNumList();
-        long existCarNum=carNumList.stream().filter(item->item==carNum).collect(Collectors.counting());
-        if(existCarNum>0){
-            return new Car(carNum);
+        if(ticket.getVaild()){
+            String carNum=ticket.getTicketNum();
+            List<String> carNumList=parkingLot.getCarNumList();
+            long existCarNum=carNumList.stream().filter(item->item==carNum).collect(Collectors.counting());
+            if(existCarNum>0){
+                return new Car(carNum);
+            }else {
+                return null;
+            }
         }
         return null;
     }

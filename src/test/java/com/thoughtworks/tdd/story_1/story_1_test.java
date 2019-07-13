@@ -63,5 +63,17 @@ public class story_1_test {
         //then
         Assertions.assertNull(fetchCar);
     }
+    @Test
+    public void should_fetch_failed_when_give_a_invalid_ticket_to_parking_boy() {
+        //given
+        Ticket ticket=new Ticket("2222");
+        ticket.setVaild(false);
+        ParkingBoy parkingBoy=new ParkingBoy();
+        ParkingLot parkingLot=new ParkingLot(new ArrayList<>());
+        //when
+        Car fetchCar =parkingBoy.fetchCar(parkingLot,ticket);
+        //then
+        Assertions.assertNull(fetchCar);
+    }
 
 }

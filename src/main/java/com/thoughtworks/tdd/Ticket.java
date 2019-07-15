@@ -1,4 +1,6 @@
-package com.thoughtworks.tdd.story_6;
+package com.thoughtworks.tdd;
+
+import com.thoughtworks.tdd.ParkingLot;
 
 public class Ticket {
     private String ticketNum;

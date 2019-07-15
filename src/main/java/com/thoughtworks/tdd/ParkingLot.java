@@ -1,6 +1,6 @@
-package com.thoughtworks.tdd.story_6;
+package com.thoughtworks.tdd;
 
-import com.thoughtworks.tdd.story_1.ParkingBoy;
+
 
 import java.util.List;
 

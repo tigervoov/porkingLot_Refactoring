@@ -1,4 +1,4 @@
-package com.thoughtworks.tdd.story_2;
+package com.thoughtworks.tdd;
 
 public class Car {
     private String carNum;

@@ -1,4 +1,4 @@
-package com.thoughtworks.tdd.story_6;
+package com.thoughtworks.tdd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ public abstract class Boy {
     private String name;
     private List<ParkingLot> belongToParkingLotList;
 
-    public abstract String park(List<ParkingLot> parkingLotList,Car car);
+    public abstract String park(List<ParkingLot> parkingLotList, Car car);
     public abstract String fetchCar(Ticket ticket);
 
     public Boy(String name) {

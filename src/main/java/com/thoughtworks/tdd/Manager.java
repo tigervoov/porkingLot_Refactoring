@@ -15,32 +15,20 @@ public class Manager {
 
     }
 
-    public ParkingLot getManageParkingLot() {
-        return manageParkingLot;
-    }
-
-    public void setManageParkingLot(ParkingLot manageParkingLot) {
-        this.manageParkingLot = manageParkingLot;
-    }
 
     public String park(Car car) {
         if (car == null) {
             return "No car to park";
         } else if (car.getPark()) {
             return "The car is parked.";
+        } else if (this.manageParkingLot.getEmptyCapacity() == 0) {
+            return "Not enough position.";
         } else {
-            if (this.manageParkingLot.getEmptyCapacity() == 0) {
-                return "Not enough position.";
-            } else {
-                car.setPark(true);
-                Ticket ticket = this.manageParkingLot.addTheCarToParkingLot(car.getCarNumber());
-                if (ticket != null) {
-                    return "Park success.";
-                } else {
-                    return "Park failed.";
-                }
-            }
+            car.setPark(true);
+            Ticket ticket = this.manageParkingLot.addTheCarToParkingLot(car.getCarNumber());
+            return ticket != null ? "Park success." : "Park failed.";
         }
+
 
     }
 
@@ -52,11 +40,8 @@ public class Manager {
                 String carNum = ticket.getTicketNum();
                 List<String> carNumList = this.manageParkingLot.getCarNumList();
                 long existCarNum = carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
-                if (existCarNum > 0) {
-                    return "Return your car.";
-                } else {
-                    return "Unrecognized parking ticket.";
-                }
+
+                return existCarNum > 0 ? "Return your car." : "Unrecognized parking ticket.";
             }
             return "Unrecognized parking ticket.";
         }
@@ -65,7 +50,7 @@ public class Manager {
 
     //管理停车男孩
     public void addABoyToParkingLot(Boy boy) {
-        if(boy!=null){
+        if (boy != null) {
             this.manageBoyList.add(boy);
             boy.getBelongToParkingLotList().add(this.manageParkingLot);
         }

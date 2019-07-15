@@ -9,8 +9,7 @@ public class ParkingLot {
     private int capacity;
     private int emptyCapacity;
     private int parkingLotNumber;
-    private Manager manager;
-    private List<ParkingBoy>  parkingBoys;
+
 
 
     public List<String> getCarNumList() {
@@ -24,9 +23,6 @@ public class ParkingLot {
         this.emptyCapacity=capacity;
     }
 
-    public void setCarNumList(List<String> carNumList) {
-        this.carNumList = carNumList;
-    }
 
     public Ticket addTheCarToParkingLot(String carNum){
         if(emptyCapacity!=0){

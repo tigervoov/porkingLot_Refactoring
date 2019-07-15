@@ -24,7 +24,7 @@ public class SmartParkingBoy extends Boy {
                 return "The car is parked.";
             } else {
                 car.setPark(true);
-                Ticket ticket = maxCapacityParkingLot.addTheCarToParkingLot(car.getCarNum());
+                Ticket ticket = maxCapacityParkingLot.addTheCarToParkingLot(car.getCarNumber());
                 if (ticket != null) {
                     return  String.format("Park success in %d parkingLot.",ticket.getParkingLot().getParkingLotNumber());
                 } else {

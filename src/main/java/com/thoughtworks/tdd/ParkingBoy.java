@@ -22,7 +22,7 @@ public class ParkingBoy extends Boy {
                 return "The car is parked.";
             } else {
                 car.setPark(true);
-                Ticket ticket = usefulParkingLotList.get(0).addTheCarToParkingLot(car.getCarNum());
+                Ticket ticket = usefulParkingLotList.get(0).addTheCarToParkingLot(car.getCarNumber());
                 if (ticket != null) {
                     return  String.format("Park success in %d parkingLot.",ticket.getParkingLot().getParkingLotNumber());
                 }else {

@@ -1,15 +1,15 @@
 package com.thoughtworks.tdd;
 
 public class Car {
-    private String carNum;
+    private String carNumber;
     private Boolean isPark;
-    public Car(String carNum) {
-        this.carNum = carNum;
+    public Car(String carNumber) {
+        this.carNumber = carNumber;
         this.isPark=false;
     }
 
-    public String getCarNum() {
-        return carNum;
+    public String getCarNumber() {
+        return carNumber;
     }
 
     public Boolean getPark() {

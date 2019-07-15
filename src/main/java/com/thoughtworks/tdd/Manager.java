@@ -26,17 +26,19 @@ public class Manager {
     public String park(Car car) {
         if (car == null) {
             return "No car to park";
-        } else if (car.getPark() == true) {
+        } else if (car.getPark()) {
             return "The car is parked.";
-        } else if (this.manageParkingLot.getEmptyCapacity() == 0) {
-            return "Not enough position.";
         } else {
-            car.setPark(true);
-            Ticket ticket = this.manageParkingLot.addTheCarToParkingLot(car.getCarNum());
-            if (ticket != null) {
-                return "Park success.";
+            if (this.manageParkingLot.getEmptyCapacity() == 0) {
+                return "Not enough position.";
             } else {
-                return "Park failed.";
+                car.setPark(true);
+                Ticket ticket = this.manageParkingLot.addTheCarToParkingLot(car.getCarNumber());
+                if (ticket != null) {
+                    return "Park success.";
+                } else {
+                    return "Park failed.";
+                }
             }
         }
 

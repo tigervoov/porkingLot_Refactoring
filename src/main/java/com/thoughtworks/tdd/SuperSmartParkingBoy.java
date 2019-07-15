@@ -26,7 +26,7 @@ public class SuperSmartParkingBoy extends Boy {
             }
             else {
                 car.setPark(true);
-                Ticket ticket = largerAvailableRateParkingLot.addTheCarToParkingLot(car.getCarNum());
+                Ticket ticket = largerAvailableRateParkingLot.addTheCarToParkingLot(car.getCarNumber());
                 if (ticket != null) {
                     return String.format("Park success in %d parkingLot.",ticket.getParkingLot().getParkingLotNumber());
                 } else {

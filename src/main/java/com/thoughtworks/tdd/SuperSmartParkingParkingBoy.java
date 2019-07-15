@@ -40,23 +40,23 @@ public class SuperSmartParkingParkingBoy extends ParkingBoy {
         return largerAvailableRateParkingLot.addTheCarToParkingLot(car.getCarNumber());
     }
 
-    public String fetchCar(Ticket ticket) {
-        if (ticket == null) {
-            return "Please provide your parking ticket.";
-        } else {
-            if (ticket.getValid()) {
-                return isExistCarNum(ticket) ? "Return your car." : "Unrecognized parking ticket.";
-            }
-            return "Unrecognized parking ticket.";
-        }
-    }
-
-    private boolean isExistCarNum(Ticket ticket) {
-        String carNum = ticket.getTicketNum();
-        List<String> carNumList = ticket.getParkingLot().getCarNumList();
-        long existCarNum=carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
-        return existCarNum>0;
-    }
+//    public String fetchCar(Ticket ticket) {
+//        if (ticket == null) {
+//            return "Please provide your parking ticket.";
+//        } else {
+//            if (ticket.getValid()) {
+//                return isExistCarNum(ticket) ? "Return your car." : "Unrecognized parking ticket.";
+//            }
+//            return "Unrecognized parking ticket.";
+//        }
+//    }
+//
+//    private boolean isExistCarNum(Ticket ticket) {
+//        String carNum = ticket.getTicketNum();
+//        List<String> carNumList = ticket.getParkingLot().getCarNumList();
+//        long existCarNum=carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
+//        return existCarNum>0;
+//    }
 
 
     public ParkingLot getLargerAvailableRateParkingLot(List<ParkingLot> parkingLotList) {

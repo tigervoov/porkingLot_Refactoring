@@ -34,19 +34,19 @@ public class SmartParkingBoy extends ParkingBoy {
         }
     }
 
-    public String fetchCar( Ticket ticket) {
-        if (ticket == null) {
-            return "Please provide your parking ticket.";
-        } else {
-            if (ticket.getValid()) {
-                String carNum = ticket.getTicketNum();
-                List<String> carNumList = ticket.getParkingLot().getCarNumList();
-                long existCarNum = carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
-                return existCarNum > 0 ? "Return your car." : "Unrecognized parking ticket.";
-            }
-            return "Unrecognized parking ticket.";
-        }
-    }
+//    public String fetchCar( Ticket ticket) {
+//        if (ticket == null) {
+//            return "Please provide your parking ticket.";
+//        } else {
+//            if (ticket.getValid()) {
+//                String carNum = ticket.getTicketNum();
+//                List<String> carNumList = ticket.getParkingLot().getCarNumList();
+//                long existCarNum = carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
+//                return existCarNum > 0 ? "Return your car." : "Unrecognized parking ticket.";
+//            }
+//            return "Unrecognized parking ticket.";
+//        }
+//    }
 
     public ParkingLot getMaxCapacityParkingLot(List<ParkingLot> parkingLotList) {
         return parkingLotList.stream().max(Comparator.comparingInt(ParkingLot::getEmptyCapacity)).get();

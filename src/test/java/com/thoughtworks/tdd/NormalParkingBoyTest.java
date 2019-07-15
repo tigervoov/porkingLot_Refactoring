@@ -43,6 +43,24 @@ public class NormalParkingBoyTest {
         Assertions.assertEquals("Park success in 1 parkingLot.", returnInfo);
 
     }
+    @Test
+    public void normalParkingBoy_fetch_a_car_when_get_a_ticket() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();//初始化停车场列表
+        ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
+        parkingLotList.add(parkingLot);
+
+        ParkingBoy parkingBoy = new NormalParkingBoy("小明");
+        Car car=new Car("888");
+        parkingBoy.park(parkingLotList,car);//先存入该车
+
+        Ticket ticket=new Ticket("888",parkingLot);
+
+        //when
+        String returnInfo=parkingBoy.fetchCar(ticket);
+        //then
+        Assertions.assertEquals("Return your car.", returnInfo);
+    }
 
 
 //    @Test

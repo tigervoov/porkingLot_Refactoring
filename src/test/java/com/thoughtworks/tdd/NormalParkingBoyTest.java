@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NormalParkingParkingBoyTest {
+public class NormalParkingBoyTest {
 
     @Test
     public void should_get_a_error_message_when_normalParkingBoy_park_a_car_into_a_no_position_parkingLot() {
         //given
         Car car = new Car("888");
-        ParkingBoy parkingBoy = new NormalParkingParkingBoy("小明");
+        ParkingBoy parkingBoy = new NormalParkingBoy("小明");
 
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始化停车场列表
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
@@ -32,7 +32,7 @@ public class NormalParkingParkingBoyTest {
     public void should_get_a_success_message_when_normalParkingBoy_park_a_car_into_a_have_position_parkingLot() {
         //given
         Car car = new Car("888");
-        ParkingBoy parkingBoy = new NormalParkingParkingBoy("小明");
+        ParkingBoy parkingBoy = new NormalParkingBoy("小明");
 
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始化停车场列表
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);

@@ -11,7 +11,7 @@ public class ManagerTest {
         //given
         Car car = new Car("888");
 
-        ParkingBoy parkingBoy =new NormalParkingParkingBoy("小朱");
+        ParkingBoy parkingBoy =new NormalParkingBoy("小朱");
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
         Manager manager=new Manager(parkingLot);
         manager.addABoyToParkingLot(parkingBoy);

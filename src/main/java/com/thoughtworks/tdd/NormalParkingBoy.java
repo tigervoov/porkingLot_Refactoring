@@ -4,9 +4,9 @@ package com.thoughtworks.tdd;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class NormalParkingParkingBoy extends ParkingBoy {
+public class NormalParkingBoy extends ParkingBoy {
 
-    public NormalParkingParkingBoy(String name) {
+    public NormalParkingBoy(String name) {
         super(name);
     }
 
@@ -23,11 +23,6 @@ public class NormalParkingParkingBoy extends ParkingBoy {
             } else {
                 car.setPark(true);
                 Ticket ticket = usefulParkingLotList.get(0).addTheCarToParkingLot(car.getCarNumber());
-//                if (ticket != null) {
-//                    return String.format("Park success in %d parkingLot.", ticket.getParkingLot().getParkingLotNumber());
-//                } else {
-//                    return "Park failed.";
-//                }
                 return ticket != null ?
                         String.format("Park success in %d parkingLot.", ticket.getParkingLot().getParkingLotNumber())
                         : "Park failed.";

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SmartParkingBoyTest {
+public class SmartParkingParkingBoyTest {
     @Test
     public void SmartParkingBoy_should_park_a_car_into_the_second_parkingLot_when_the_first_parkingLot_is_full() {
         //given
@@ -21,7 +21,7 @@ public class SmartParkingBoyTest {
         parkingLotList.add(firstParkingLot);
         parkingLotList.add(secondParkingLot);
 
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy("小张");
+        SmartParkingParkingBoy smartParkingBoy = new SmartParkingParkingBoy("小张");
         //when
         String returnInfo = smartParkingBoy.park(parkingLotList, car);
 

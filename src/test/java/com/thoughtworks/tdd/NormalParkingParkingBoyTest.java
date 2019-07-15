@@ -2,7 +2,6 @@
 package com.thoughtworks.tdd;
 
 
-import com.thoughtworks.tdd.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class parkingBoyTest {
+public class NormalParkingParkingBoyTest {
 
     @Test
-    public void should_get_a_error_message_when_parkingBoy_park_a_car_into_a_no_position_parkingLot() {
+    public void should_get_a_error_message_when_normalParkingBoy_park_a_car_into_a_no_position_parkingLot() {
         //given
         Car car = new Car("888");
-        Boy parkingBoy = new ParkingBoy("小明");
+        ParkingBoy parkingBoy = new NormalParkingParkingBoy("小明");
 
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始化停车场列表
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
@@ -30,10 +29,10 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_get_a_success_message_when_parkingBoy_park_a_car_into_a_have_position_parkingLot() {
+    public void should_get_a_success_message_when_normalParkingBoy_park_a_car_into_a_have_position_parkingLot() {
         //given
         Car car = new Car("888");
-        Boy parkingBoy = new ParkingBoy("小明");
+        ParkingBoy parkingBoy = new NormalParkingParkingBoy("小明");
 
         List<ParkingLot> parkingLotList = new ArrayList<>();//初始化停车场列表
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);

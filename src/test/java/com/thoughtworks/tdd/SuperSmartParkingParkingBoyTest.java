@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuperSmartParkingBoyTest {
+public class SuperSmartParkingParkingBoyTest {
 
     @Test
     public void SuperSmartParkingBoy_should_park_a_car_into_the_max_capacity_parkingLot() {
@@ -23,7 +23,7 @@ public class SuperSmartParkingBoyTest {
         parkingLotList.add(firstParkingLot);
         parkingLotList.add(secondParkingLot);
 
-        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy("小李");
+        SuperSmartParkingParkingBoy superSmartParkingBoy = new SuperSmartParkingParkingBoy("小李");
         //when
         String returnInfo = superSmartParkingBoy.park(parkingLotList, car);
 
@@ -33,11 +33,11 @@ public class SuperSmartParkingBoyTest {
     @Test
     public void should_get_a_error_message_when_give_wrong_ticket_to_SuperSmartParkingBoy() {
         //given
-        Boy superSmartParkingBoy = new SuperSmartParkingBoy("小明");
+        ParkingBoy superSmartParkingParkingBoy = new SuperSmartParkingParkingBoy("小明");
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
         Ticket ticket = new Ticket("888",parkingLot);
         //when
-        String returnInfo = superSmartParkingBoy.fetchCar(ticket);
+        String returnInfo = superSmartParkingParkingBoy.fetchCar(ticket);
 
         //then
 
@@ -48,9 +48,9 @@ public class SuperSmartParkingBoyTest {
     public void should_get_a_error_message_when_give_null_ticket_to_SuperSmartParkingBoy() {
         //given
         Ticket ticket = null;
-        Boy superSmartParkingBoy = new SuperSmartParkingBoy("小明");
+        ParkingBoy superSmartParkingParkingBoy = new SuperSmartParkingParkingBoy("小明");
         //when
-        String returnInfo = superSmartParkingBoy.fetchCar( ticket);
+        String returnInfo = superSmartParkingParkingBoy.fetchCar( ticket);
 
         //then
         Assertions.assertEquals("Please provide your parking ticket.", returnInfo);
@@ -60,13 +60,13 @@ public class SuperSmartParkingBoyTest {
     @Test
     public void should_get_a_success_message_when_give_right_ticket_to_SuperSmartParkingBoy() {
         //given
-        Boy superSmartParkingBoy = new SuperSmartParkingBoy("小明");
+        ParkingBoy superSmartParkingParkingBoy = new SuperSmartParkingParkingBoy("小明");
         List<String> carNumList = new ArrayList<>();
         carNumList.add("888");//向停车场添加这辆车
         ParkingLot parkingLot = new ParkingLot(new ArrayList<>(),10,1);
         Ticket ticket = new Ticket("888",parkingLot);
         //when
-        String returnInfo = superSmartParkingBoy.fetchCar(ticket);
+        String returnInfo = superSmartParkingParkingBoy.fetchCar(ticket);
 
         //then
 

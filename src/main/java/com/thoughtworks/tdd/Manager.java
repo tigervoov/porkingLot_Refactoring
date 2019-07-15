@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 public class Manager {
 
     private ParkingLot manageParkingLot;
-    private List<Boy> manageBoyList;
+    private List<ParkingBoy> manageParkingBoyList;
 
     public Manager(ParkingLot manageParkingLot) {
         this.manageParkingLot = manageParkingLot;
-        this.manageBoyList = new ArrayList<>();
+        this.manageParkingBoyList = new ArrayList<>();
 
     }
 
@@ -49,30 +49,30 @@ public class Manager {
 
 
     //管理停车男孩
-    public void addABoyToParkingLot(Boy boy) {
-        if (boy != null) {
-            this.manageBoyList.add(boy);
-            boy.getBelongToParkingLotList().add(this.manageParkingLot);
+    public void addABoyToParkingLot(ParkingBoy parkingBoy) {
+        if (parkingBoy != null) {
+            this.manageParkingBoyList.add(parkingBoy);
+            parkingBoy.getBelongToParkingLotList().add(this.manageParkingLot);
         }
 
     }
 
-    public void deleteABoyToParkingLot(Boy boy) {
-        manageBoyList.remove(boy);
+    public void deleteABoyToParkingLot(ParkingBoy parkingBoy) {
+        manageParkingBoyList.remove(parkingBoy);
     }
 
-    public String orderBoyToParkACar(Boy boy, Car car) {
-        if (manageBoyList.indexOf(boy) != -1) {
-            List<ParkingLot> parkingLots = boy.getBelongToParkingLotList();
-            return boy.park(parkingLots, car);
+    public String orderBoyToParkACar(ParkingBoy parkingBoy, Car car) {
+        if (manageParkingBoyList.indexOf(parkingBoy) != -1) {
+            List<ParkingLot> parkingLots = parkingBoy.getBelongToParkingLotList();
+            return parkingBoy.park(parkingLots, car);
         }
         return "The Boy is not belong to you,you can't oder him";
     }
 
-    public String orderBoyToFetchACar(Boy boy, Ticket ticket) {
-        if (manageBoyList.indexOf(boy) != 0) {
-            List<ParkingLot> parkingLots = boy.getBelongToParkingLotList();
-            return boy.fetchCar(ticket);
+    public String orderBoyToFetchACar(ParkingBoy parkingBoy, Ticket ticket) {
+        if (manageParkingBoyList.indexOf(parkingBoy) != 0) {
+            List<ParkingLot> parkingLots = parkingBoy.getBelongToParkingLotList();
+            return parkingBoy.fetchCar(ticket);
         }
         return "The Boy is not belong to you,you can't oder him";
     }

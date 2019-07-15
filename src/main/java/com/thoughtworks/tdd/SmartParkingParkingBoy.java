@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SmartParkingBoy extends Boy {
+public class SmartParkingParkingBoy extends ParkingBoy {
 
-    public SmartParkingBoy(String name) {
+    public SmartParkingParkingBoy(String name) {
         super(name);
     }
 

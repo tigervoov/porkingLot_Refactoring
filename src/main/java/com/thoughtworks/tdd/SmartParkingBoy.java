@@ -2,12 +2,13 @@ package com.thoughtworks.tdd;
 
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SmartParkingParkingBoy extends ParkingBoy {
+public class SmartParkingBoy extends ParkingBoy {
 
-    public SmartParkingParkingBoy(String name) {
+    public SmartParkingBoy(String name) {
         super(name);
     }
 
@@ -25,11 +26,9 @@ public class SmartParkingParkingBoy extends ParkingBoy {
             } else {
                 car.setPark(true);
                 Ticket ticket = maxCapacityParkingLot.addTheCarToParkingLot(car.getCarNumber());
-                if (ticket != null) {
-                    return  String.format("Park success in %d parkingLot.",ticket.getParkingLot().getParkingLotNumber());
-                } else {
-                    return "Park failed.";
-                }
+                return ticket != null ?
+                        String.format("Park success in %d parkingLot.", ticket.getParkingLot().getParkingLotNumber())
+                        : "Park failed.";
 
             }
         }
@@ -43,30 +42,15 @@ public class SmartParkingParkingBoy extends ParkingBoy {
                 String carNum = ticket.getTicketNum();
                 List<String> carNumList = ticket.getParkingLot().getCarNumList();
                 long existCarNum = carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
-                if (existCarNum > 0) {
-                    return "Return your car.";
-                } else {
-                    return "Unrecognized parking ticket.";
-                }
+                return existCarNum > 0 ? "Return your car." : "Unrecognized parking ticket.";
             }
             return "Unrecognized parking ticket.";
         }
     }
 
     public ParkingLot getMaxCapacityParkingLot(List<ParkingLot> parkingLotList) {
-        List<ParkingLot> usefulParkingLotList = parkingLotList.stream()
-                .filter(parkingLot -> parkingLot.getEmptyCapacity() != 0).collect(Collectors.toList());
-        if(usefulParkingLotList.size()!=0){
-            List<Integer> capacityList = usefulParkingLotList.stream()
-                    .map(item -> item.getEmptyCapacity()).collect(Collectors.toList());
-            int maxCapacityParkLot = Collections.max(capacityList);
-            int maxCapacityParkLotIndex =capacityList.indexOf(maxCapacityParkLot);
-            ParkingLot maxCapacityParkingLot = usefulParkingLotList.get(maxCapacityParkLotIndex);
-            return maxCapacityParkingLot;
-        }
-        else {
-            return null;
-        }
+        return parkingLotList.stream().max(Comparator.comparingInt(ParkingLot::getEmptyCapacity)).get();
+
     }
 
 }

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuperSmartParkingParkingBoyTest {
+public class SuperSmartParkingBoyTest {
 
     @Test
     public void SuperSmartParkingBoy_should_park_a_car_into_the_max_capacity_parkingLot() {

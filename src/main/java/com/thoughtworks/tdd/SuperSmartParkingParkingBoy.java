@@ -3,6 +3,7 @@ package com.thoughtworks.tdd;
 
 
 import java.util.Collections;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,37 +26,41 @@ public class SuperSmartParkingParkingBoy extends ParkingBoy {
                 return "Not enough position.";
             }
             else {
-                car.setPark(true);
-                Ticket ticket = largerAvailableRateParkingLot.addTheCarToParkingLot(car.getCarNumber());
-                if (ticket != null) {
-                    return String.format("Park success in %d parkingLot.",ticket.getParkingLot().getParkingLotNumber());
-                } else {
-                    return "Park failed.";
-                }
+                Ticket ticket = getTicketByParkACar(car, largerAvailableRateParkingLot);
+                return ticket != null ?
+                        String.format("Park success in %d parkingLot.", ticket.getParkingLot().getParkingLotNumber())
+                        : "Park failed.";
 
             }
         }
     }
+
+    private Ticket getTicketByParkACar(Car car, ParkingLot largerAvailableRateParkingLot) {
+        car.setPark(true);
+        return largerAvailableRateParkingLot.addTheCarToParkingLot(car.getCarNumber());
+    }
+
     public String fetchCar(Ticket ticket) {
         if (ticket == null) {
             return "Please provide your parking ticket.";
         } else {
             if (ticket.getValid()) {
-                String carNum = ticket.getTicketNum();
-                List<String> carNumList = ticket.getParkingLot().getCarNumList();
-                long existCarNum = carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
-                if (existCarNum > 0) {
-                    return "Return your car.";
-                } else {
-                    return "Unrecognized parking ticket.";
-                }
+                return isExistCarNum(ticket) ? "Return your car." : "Unrecognized parking ticket.";
             }
             return "Unrecognized parking ticket.";
         }
     }
 
+    private boolean isExistCarNum(Ticket ticket) {
+        String carNum = ticket.getTicketNum();
+        List<String> carNumList = ticket.getParkingLot().getCarNumList();
+        long existCarNum=carNumList.stream().filter(item -> item == carNum).collect(Collectors.counting());
+        return existCarNum>0;
+    }
+
 
     public ParkingLot getLargerAvailableRateParkingLot(List<ParkingLot> parkingLotList) {
+
         List<ParkingLot> usefulParkingLotList = parkingLotList.stream()
                 .filter(parkingLot -> parkingLot.getCapacity() != 0).collect(Collectors.toList());
         if (usefulParkingLotList.size() != 0) {
